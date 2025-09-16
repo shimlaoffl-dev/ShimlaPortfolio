@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useFormState } from 'react-hook-form';
+import { useEffect, useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -25,7 +25,7 @@ const contactSchema = z.object({
 type FormValues = z.infer<typeof contactSchema>;
 
 function SubmitButton() {
-  const { pending } = useFormState<FormState, FormData>(submitContactForm, { message: '' });
+  const { pending } = useFormStatus();
   return (
     <Button type="submit" disabled={pending} className="w-full">
       {pending ? (
@@ -44,7 +44,7 @@ function SubmitButton() {
 
 export default function ContactPage() {
   const { toast } = useToast();
-  const [state, formAction] = useFormState<FormState, FormData>(submitContactForm, { message: '' });
+  const [state, formAction] = useActionState<FormState, FormData>(submitContactForm, { message: '', errors: {} });
 
   const form = useForm<FormValues>({
     resolver: zodResolver(contactSchema),
