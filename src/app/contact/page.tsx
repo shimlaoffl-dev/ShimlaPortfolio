@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useFormState, useForm } from 'react-hook-form';
+import { useFormState } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { submitContactForm, FormState } from '@/lib/actions';
@@ -11,8 +12,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Mail, Phone, Linkedin, Send } from 'lucide-radix'; // Using lucide-radix for Send icon
-import { Github } from 'lucide-react';
+import { Loader2, Mail, Phone, Linkedin, Send, Github } from 'lucide-react';
 
 
 const contactSchema = z.object({
