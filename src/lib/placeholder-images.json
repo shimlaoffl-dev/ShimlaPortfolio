@@ -1,3 +1,52 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "portfolio-lead-generation",
+      "description": "A chart showing upward trends, representing lead generation success.",
+      "imageUrl": "https://picsum.photos/seed/101/600/400",
+      "imageHint": "lead generation"
+    },
+    {
+      "id": "portfolio-marketing-material",
+      "description": "A collection of branded marketing materials like brochures and digital mockups.",
+      "imageUrl": "https://picsum.photos/seed/102/600/400",
+      "imageHint": "marketing material"
+    },
+    {
+      "id": "portfolio-business-development",
+      "description": "Two professionals shaking hands, symbolizing business development and client relationships.",
+      "imageUrl": "https://picsum.photos/seed/103/600/400",
+      "imageHint": "business development"
+    },
+    {
+      "id": "portfolio-process-improvement",
+      "description": "A flowchart or diagram illustrating an improved process.",
+      "imageUrl": "https://picsum.photos/seed/104/600/400",
+      "imageHint": "process improvement"
+    },
+    {
+      "id": "portfolio-competitive-analysis",
+      "description": "A magnifying glass over a graph, representing competitive analysis.",
+      "imageUrl": "https://picsum.photos/seed/105/600/400",
+      "imageHint": "competitive analysis"
+    },
+    {
+      "id": "blog-crm-tools",
+      "description": "A dashboard of a CRM tool showing customer data.",
+      "imageUrl": "https://picsum.photos/seed/201/800/450",
+      "imageHint": "CRM dashboard"
+    },
+    {
+      "id": "blog-sales-lessons",
+      "description": "A sales team collaborating in a modern office.",
+      "imageUrl": "https://picsum.photos/seed/202/800/450",
+      "imageHint": "sales team"
+    },
+    {
+      "id": "blog-data-driven",
+      "description": "Abstract visualization of data points and connections.",
+      "imageUrl": "https://picsum.photos/seed/203/800/450",
+      "imageHint": "data visualization"
+    }
+  ]
 }
