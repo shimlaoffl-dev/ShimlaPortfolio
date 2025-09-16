@@ -1,13 +1,16 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { portfolio } from '@/lib/data';
-import { cn } from '@/lib/utils';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight, BarChart, Briefcase, Download, TrendingUp } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
   const featuredWork = portfolio.slice(0, 3);
+  const getImage = (id: string) => {
+    return PlaceHolderImages.find((img) => img.id === `portfolio-${id}`);
+  };
 
   return (
     <div className="flex flex-col">
@@ -71,31 +74,36 @@ export default function Home() {
             Featured Work
           </h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {featuredWork.map((item) => (
-              <Card key={item.id} className="group overflow-hidden">
-                <div className="overflow-hidden">
-                  <Image
-                    src={item.imageUrl}
-                    alt={item.title}
-                    width={600}
-                    height={400}
-                    data-ai-hint={item.imageHint}
-                    className="h-60 w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle className="font-headline text-xl">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{item.description}</p>
-                  <Button variant="link" asChild className="mt-4 px-0">
-                    <Link href={`/portfolio#${item.id}`}>
-                      Read Case Study <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
+            {featuredWork.map((item) => {
+              const image = getImage(item.id);
+              return (
+                <Card key={item.id} className="group overflow-hidden">
+                  <div className="overflow-hidden">
+                    {image && (
+                      <Image
+                        src={image.imageUrl}
+                        alt={item.title}
+                        width={600}
+                        height={400}
+                        data-ai-hint={image.imageHint}
+                        className="h-60 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    )}
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="font-headline text-xl">{item.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{item.description}</p>
+                    <Button variant="link" asChild className="mt-4 px-0">
+                      <Link href={`/portfolio#${item.id}`}>
+                        Read Case Study <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
           <div className="mt-16 text-center">
             <Button asChild size="lg" variant="outline">
